@@ -1,0 +1,88 @@
+name: 실험 / 검증
+description: 기술 선택, 성능, 정확도 등의 가설을 실험하고 결과를 기록합니다.
+title: "[Experiment] "
+labels:
+  - experiment
+
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: 실험 목적
+      description: 무엇을 판단하기 위해 실험하는지 작성해주세요.
+      placeholder: |
+        예)
+        불법광고 텍스트 분류에 Logistic Regression과 Linear SVM 중
+        어떤 모델이 정확도와 CPU 추론 속도 측면에서 적합한지 비교한다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: 가설
+      description: 실험 전에 예상하는 결과가 있다면 작성해주세요.
+      placeholder: |
+        예)
+        Character n-gram 기반 Linear SVM이 위장 문자열 분류에서
+        Word n-gram Logistic Regression보다 Recall이 높을 것으로 예상한다.
+
+  - type: textarea
+    id: variables
+    attributes:
+      label: 비교 대상
+      description: 변경하거나 비교할 조건을 작성해주세요.
+      placeholder: |
+        A. TF-IDF(Character 2~5gram) + Logistic Regression
+        B. TF-IDF(Character 2~5gram) + Linear SVM
+    validations:
+      required: true
+
+  - type: textarea
+    id: fixed_conditions
+    attributes:
+      label: 고정 조건
+      description: 공정한 비교를 위해 동일하게 유지할 조건을 작성해주세요.
+      placeholder: |
+        - 동일 Train / Validation / Test Dataset
+        - 동일 전처리
+        - 동일 테스트 PC
+        - 동일 Random Seed
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: 측정 지표
+      description: 결과 비교에 사용할 정량 지표를 작성해주세요.
+      placeholder: |
+        - Precision
+        - Recall
+        - F1 Score
+        - 평균 추론 시간
+        - Peak RAM
+    validations:
+      required: true
+
+  - type: textarea
+    id: result
+    attributes:
+      label: 실험 결과
+      description: 실험 완료 후 측정 결과를 기록해주세요.
+      placeholder: |
+        실험 전에는 비워두고, 완료 후 결과를 기록합니다.
+
+  - type: textarea
+    id: conclusion
+    attributes:
+      label: 결론
+      description: 결과를 근거로 최종 선택과 이유를 기록해주세요.
+      placeholder: |
+        예)
+        Linear SVM을 채택한다.
+        Recall이 3.2% 높고 평균 추론 시간 차이가 유의미하지 않았다.
+
+  - type: textarea
+    id: follow_up
+    attributes:
+      label: 후속 작업
+      description: 실험 결과에 따라 추가로 필요한 작업이 있다면 작성해주세요.

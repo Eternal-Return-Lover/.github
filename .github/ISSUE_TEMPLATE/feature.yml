@@ -1,0 +1,100 @@
+name: 기능 및 작업
+description: 기능 개발, 개선, 리팩터링, 테스트, 문서, 성능 개선 등 일반 작업을 등록합니다.
+title: "[Feature] "
+labels:
+  - feature
+
+body:
+  - type: textarea
+    id: background
+    attributes:
+      label: 배경
+      description: 이 작업이 필요한 이유와 해결하려는 문제를 작성해주세요.
+      placeholder: |
+        예)
+        현재 크롤링과 탐지가 순차적으로 처리되어 전체 검사 시간이 길어질 수 있다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: 작업 목표
+      description: 이번 작업을 통해 달성하려는 목표를 작성해주세요.
+      placeholder: |
+        예)
+        크롤링과 탐지를 병렬 파이프라인으로 분리하여 전체 처리 시간을 단축한다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 작업 내용
+      description: 구현하거나 변경해야 할 세부 작업을 작성해주세요.
+      placeholder: |
+        - [ ] Crawler Worker와 Detector Worker를 분리한다.
+        - [ ] BlockingQueue를 추가한다.
+        - [ ] Scan 종료 조건을 정의한다.
+        - [ ] 관련 테스트를 작성한다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: flow
+    attributes:
+      label: 동작 흐름
+      description: 기능이나 처리 흐름이 있는 경우 작성해주세요.
+      placeholder: |
+        URL Queue
+        → Crawler
+        → PageElementData
+        → BlockingQueue
+        → Detector
+        → Finding
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 완료 조건
+      description: 이 Issue를 완료 처리할 수 있는 검증 가능한 조건을 작성해주세요.
+      placeholder: |
+        - [ ] 요구한 기능이 정상 동작한다.
+        - [ ] 관련 테스트가 통과한다.
+        - [ ] 기존 기능에 회귀 문제가 없다.
+        - [ ] 필요한 경우 성능 또는 정확도 검증이 완료된다.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 작업 유형
+      options:
+        - 기능 개발
+        - 기능 개선
+        - 리팩터링
+        - 테스트
+        - 성능 개선
+        - CI / CD
+        - 빌드 / 설정
+        - 문서
+        - 코드 품질
+        - 기타
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 영향 범위
+      description: 변경으로 영향을 받을 수 있는 모듈, API, 데이터 구조 등을 작성해주세요.
+      placeholder: |
+        예)
+        crawler, detector, PageElementData, Scan 상태 관리
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 참고 사항
+      description: 관련 Issue, PR, 문서, 설계 자료, 참고 링크 등이 있다면 작성해주세요.
